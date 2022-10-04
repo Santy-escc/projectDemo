@@ -63,6 +63,8 @@
     git remote -v 
     
 #guardar cambios en repositorios
+    git pull y git push intentar primero
+
     git pull --rebase origin main (para combinar cambios git y github)
     git push -u origin main (empujar cambios git a github)
     git pull origin main (para cambios de github a git)
@@ -70,8 +72,9 @@
 #verifica si el agente de ssh es running
     eval $(ssh-agent -s)
         
-#para crear claves publica y privada
+#para crear claves publica y privada luego copiar en github el rsa.pub
     ssh-keygen -t rsa -b 4096 -C "santy.escc@gmail.com"
+
     
 
 
