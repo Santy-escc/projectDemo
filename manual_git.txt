@@ -41,6 +41,10 @@
     git branch nombre_cabecera (abre una nueva cabecera)
     git checkout nombre_cabecera (para moverse a la nueva cabecera)
 
+#para mostrar informacion de las branchs
+
+    git show-branch --all
+
 # guardar cambios en git
     git add .
     git commit -am "ingresar el comentario"
@@ -101,7 +105,7 @@
 
         git push origin :refs/tags/v.03
 
-        
+
 
 
 
