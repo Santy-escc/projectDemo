@@ -5,11 +5,6 @@
     git config -l (Muestra la config de git user, etc)
     git config --list --show-origin (muestra informacion )
 
-#para traer un proyecto 
-
-git clone https://<githubtoken>@github.com/<username>/<repositoryname>.git 
-            copiar de github
-
 #para cambiar el email en la configuracion global
 
     git config --global  user.email "santy.escc@gmail.com"
@@ -45,6 +40,8 @@ git clone https://<githubtoken>@github.com/<username>/<repositoryname>.git
 #para crear nuevas ramas
     git branch nombre_cabecera (abre una nueva cabecera)
     git checkout nombre_cabecera (para moverse a la nueva cabecera)
+    git branch -r (ramas remotas)
+    git branch -a (se ven locales y remotas)
 
 #para mostrar informacion de las branchs
 
@@ -54,17 +51,19 @@ git clone https://<githubtoken>@github.com/<username>/<repositoryname>.git
     git add .
     git commit -am "ingresar el comentario"
     git merge "comentario"
+    git merge footer
+                para unir la rama nombrada con la rama en la que estamos  
 
-#Cambiar la en nombre de una rama ejm master a main
+#Cambiar la rama principal master  para usar 'main
     git branch -a (muestra la rama actual)
-    git checkout master (va a la rama)
-    git branch -m main (renombra la rama )
-    git symbolic-ref HEAD refs/heads/main (branch update on github )
+    git checkout master 
+    git branch -m main
+    git symbolic-ref HEAD refs/heads/main
 
 #Para conectar con el servidor github
 
 #https
-    git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git
+    git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git (se puede usar para ssh)
 
 #ssh
     git remote set-url origin git@github.com:Santy-escc/projectDemo.git
@@ -110,10 +109,74 @@ git clone https://<githubtoken>@github.com/<username>/<repositoryname>.git
 
         git push origin :refs/tags/v.03
 
+#para guardar cambios en stage sin pasar al archivo (temporal) o para evitar cambios
+
+    git stash 
+    git stash list
+    git stash branch otraversion
+                        branch name
+
+    git stash drop (para eliminar los cambios sin guardarlos)
+
+ #para eliminar las copias de archivos duplicados
+
+    git clean  --dry-run 
+    git clean -f (se borra los archivos listados)                      
+
+#para grabar especificos commit y no todos, depende del hash
+
+    git cherry-pick dca3a24
+                    hash
+
+#para revisar y recuperar cambios
+    git reflog
+
+    git reset --hard 5d34d99 (hard mas usado o soft mantiene el stagin)
+                     hash                    
+
+#para guardar el cambios al commit anterior
+    git commit --amend 
+
+#para buscar en el proyecto palabras
+
+    git grep -n color (numero linea , contar )
+    git grep -c color ( contar )
+                word searched
+
+#para buscar en log dr commits
+
+    git log -S "cabecera"
+                word searched
+
+#para ver los commits que han hecho los miembros del equipo
+
+    git shortlog
+
+    git shortlog -sn --all (resumen)
+    git shortlog -sn --all --no-merges (no cuenta los merges)
+
+#para crear un alias a nivel global de la app
+
+    git config --global alias.stats "shortlog -sn --all --no-merges"
+                              name      comando  
+
+    git stats (para ejecutar)
+
+#para ver el manual de un comando "parecido a man"
+
+    git blame --help
+        comando
+
+# para revisar quien cambio unas ciertas lineas
+
+   git blame manual_git.txt -L 10,12 -c
+             archivo            lineas
 
 
 
-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
+
+
+
 
 
 
