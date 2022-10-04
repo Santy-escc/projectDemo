@@ -12,6 +12,8 @@
 #para mostrar cambios
 
     git log --stat (muestra cambios detallados de la carpeta)
+    git log --all --graph --decorate --oneline (muestra el log compacto y con lineas ejm merge)
+    
     git log archivo.txt (muestra los cambios historicos del archivo)
     git show archivo.txt (muestra los cambios del archivo)
     git diff se pone los codigos hexadecimales de las versiones a comparar
@@ -74,6 +76,18 @@
         
 #para crear claves publica y privada luego copiar en github el rsa.pub
     ssh-keygen -t rsa -b 4096 -C "santy.escc@gmail.com"
+
+#para crear alias de comandos muy largos
+    
+    alias arbolito = "git log --all --graph --decorate --oneline"
+     
+
+#para crear tags
+
+    git tag -a v0.1 -m "primera version" 2a5db9e
+               name      description      hash number 
+
+    git tag (muestra los tags creados)
 
     
 
