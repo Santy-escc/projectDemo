@@ -5,6 +5,11 @@
     git config -l (Muestra la config de git user, etc)
     git config --list --show-origin (muestra informacion )
 
+#para traer un proyecto 
+
+git clone https://<githubtoken>@github.com/<username>/<repositoryname>.git 
+            copiar de github
+
 #para cambiar el email en la configuracion global
 
     git config --global  user.email "santy.escc@gmail.com"
@@ -50,16 +55,16 @@
     git commit -am "ingresar el comentario"
     git merge "comentario"
 
-#Cambiar la rama principal master  para usar 'main
+#Cambiar la en nombre de una rama ejm master a main
     git branch -a (muestra la rama actual)
-    git checkout master 
-    git branch -m main
-    git symbolic-ref HEAD refs/heads/main
+    git checkout master (va a la rama)
+    git branch -m main (renombra la rama )
+    git symbolic-ref HEAD refs/heads/main (branch update on github )
 
 #Para conectar con el servidor github
 
 #https
-    git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git (se puede usar para ssh)
+    git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git
 
 #ssh
     git remote set-url origin git@github.com:Santy-escc/projectDemo.git
@@ -108,7 +113,7 @@
 
 
 
-
+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
 
 
 
