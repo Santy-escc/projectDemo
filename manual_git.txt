@@ -1,40 +1,77 @@
-git init 
-git status 
-git add .
-git commit -m "ingresar el comentario"
-git config --list (Muestra la config de git user, etc)
-git config --list --show-origin (muestra informacion )
-git log archivo.txt (muestra los cambios historicos del archivo)
-git show archivo.txt (muestra los cambios del archivo)
-git diff se pone los codigos hexadecimales de las versiones a comparar
-git reset --hard o --soft  hexadecimal (nos permite volver a una version anterior)
---hard se elimina todos los anteriores como si no hubieran existido
---soft para que sigan los registros en el historial
-git log --stat (muestra cambios detallados de la carpeta)
-git checkout hexadecimal nombrearchivo (muestra la version deseada)
-    peligro si se da commit se perdera la ultima version 
+#pasos iniciales
 
-git checkout master nombrearchivo (regresa a la ultima version)
+    git init 
+    git status 
+    git config -l (Muestra la config de git user, etc)
+    git config --list --show-origin (muestra informacion )
 
-git rm (elimina el archivo pero no su historial) --cached o --force
+#para cambiar el email en la configuracion global
 
-git reset HEAD  (para quitar del stage para que no se guarde con el resto si se nesecita hacer un commit)
+    git config --global  user.email "santy.escc@gmail.com"
+    
+#para mostrar cambios
 
-git shortlog (muestra quien hizo el cambio)
-
-git log --author=“Nombre del autor” - Confirma realizados por autor que cumplen exactamente con el nombre.
-
-git branch nombre_cabecera (abre una nueva cabecera)
-
-git checkout nombre_cabecera (para moverse a la nueva cabecera)
-
-cambios
-
-git commit -am "comentario"
-
-git merge "comentario"
+    git log --stat (muestra cambios detallados de la carpeta)
+    git log archivo.txt (muestra los cambios historicos del archivo)
+    git show archivo.txt (muestra los cambios del archivo)
+    git diff se pone los codigos hexadecimales de las versiones a comparar
+    git shortlog (muestra quien hizo el cambio)
+    git log --author=“Nombre del autor” - Confirma realizados por autor que cumplen exactamente con el nombre.
 
 
+#para eliminar cambios
 
+    git reset --hard o --soft  hexadecimal (nos permite volver a una version anterior)
+    --hard se elimina todos los anteriores como si no hubieran existido
+    --soft se elimina y sigen los registros en el historial
+    git rm (elimina el archivo pero no su historial) --cached o --force
+
+#para revisar diferentes versiones de archivos
+
+    git checkout hexadecimal nombrearchivo 
+    (muestra la version deseada -- peligro si se da commit se perdera la ultima version )
+    
+    git checkout master nombrearchivo (regresa a la ultima version)
+
+    git reset HEAD  (para quitar del stage para que no se guarde con el resto si se nesecita hacer un commit)
+
+#para crear nuevas ramas
+    git branch nombre_cabecera (abre una nueva cabecera)
+    git checkout nombre_cabecera (para moverse a la nueva cabecera)
+
+# guardar cambios en git
+    git add .
+    git commit -am "ingresar el comentario"
+    git merge "comentario"
+
+#Cambiar la rama principal master  para usar 'main
+    git branch -a (muestra la rama actual)
+    git checkout master 
+    git branch -m main
+    git symbolic-ref HEAD refs/heads/main
+
+#Para conectar con el servidor github
+
+#https
+    git remote set-url origin https://<githubtoken>@github.com/<username>/<repositoryname>.git (se puede usar para ssh)
+
+#ssh
+    git remote set-url origin git@github.com:Santy-escc/projectDemo.git
+  
+#para ver el repositorio actual siempre ir al proyecto debe mostrarse la rama ejm main
+
+    git remote -v 
+    
+#guardar cambios en repositorios
+    git pull --rebase origin main (para combinar cambios git y github)
+    git push -u origin main (empujar cambios git a github)
+    git pull origin main (para cambios de github a git)
+
+#verifica si el agente de ssh es running
+    eval $(ssh-agent -s)
+        
+#para crear claves publica y privada
+    ssh-keygen -t rsa -b 4096 -C "santy.escc@gmail.com"
+    
 
 
