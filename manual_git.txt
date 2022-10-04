@@ -82,13 +82,31 @@
     alias arbolito = "git log --all --graph --decorate --oneline"
      
 
-#para crear tags
+#para crear tags y enviarlos a github
 
     git tag -a v0.1 -m "primera version" 2a5db9e
                name      description      hash number 
 
     git tag (muestra los tags creados)
 
-    
+    git push origin --tags
+
+#para eliminar un tag 
+
+    #git 
+     git tag -d v.03
+                 tag name
+
+    #github
+
+        git push origin :refs/tags/v.03
+
+        
+
+
+
+
+
+
 
 
